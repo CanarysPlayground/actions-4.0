@@ -1,0 +1,20 @@
+name: Run on Self-Hosted Runner
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-self-hosted:
+    runs-on: self-hosted  # This targets your self-hosted runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print runner info
+        run: |
+          echo "Running on a self-hosted runner!"
+          echo "Runner name: $RUNNER_NAME"
+          echo "OS: $RUNNER_OS"
